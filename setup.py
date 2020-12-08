@@ -1,27 +1,28 @@
-"""A setuptools based setup module.                                                                                                                                                                                                          
-                                                                                                                                                                                                                                             
-See:                                                                                                                                                                                                                                         
-https://packaging.python.org/en/latest/distributing.html                                                                                                                                                                                     
-https://github.com/pypa/sampleproject                                                                                                                                                                                                        
-"""                                                                                                                                                                                                                                          
-                                                                                                                                                                                                                                             
-# Always prefer setuptools over distutils                                                                                                                                                                                                    
-from setuptools import setup, Command, find_packages                                                                                                                                                                                         
-# To use a consistent encoding                                                                                                                                                                                                               
-from codecs import open                                                                                                                                                                                                                      
-import os                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                             
-base_dir = os.path.dirname(__file__)                                                                                                                                                                                                         
-here = os.path.abspath(base_dir)                                                                                                                                                                                                             
-                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                             
-# include all templates in data folder                                                                                                                                                                                                       
-# def get_data_files(filename):                                                                                                                                                                                                              
-#     if not os.path.isdir(filename):                                                                                                                                                                                                        
-#         if filename.endswith('.tp'):                                                                                                                                                                                                       
-#             return os.path.join(here, 'data', filename)                                                                                                                                                                                    
-#                                                                                                                                                                                                                                            
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""A setuptools based setup module.
+See:
+https://packaging.python.org/en/latest/distributing.html
+https://github.com/pypa/sampleproject
+"""
+
+
+import os
+# Always prefer setuptools over distutils
+from setuptools import setup, Command, find_packages
+# To use a consistent encoding
+from codecs import open
+
+base_dir = os.path.dirname(__file__)
+here = os.path.abspath(base_dir)
+
+# include all templates in data folder
+# def get_data_files(filename):
+#     if not os.path.isdir(filename):
+#         if filename.endswith('.tp'):
+#             return os.path.join(here, 'data', filename)
+#
 # data_files = map(get_data_files,
 #                  os.listdir(here + '/data'))
 # print data_files
@@ -62,11 +63,11 @@ class wrap_binary(Command):
         assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 
         if self.build_dst:
-            print self.build_dst
+            print(self.build_dst)
             src = os.path.abspath('compo')
             dst = os.path.join(self.build_dst, 'compo')
             os.symlink(src, dst)
-            print 'compo', dst, "os.symlink(item, dst)"
+            print('compo', dst, "os.symlink(item, dst)")
 
 
 class build_all(Command):
@@ -90,11 +91,11 @@ class build_all(Command):
         assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 
         if self.build_dst:
-            print self.build_dst
+            print(self.build_dst)
             src = os.path.abspath('compo')
             dst = os.path.join(self.build_dst, 'compo')
             os.symlink(src, dst)
-            print 'compo', dst, "os.symlink(item, dst)"
+            print('compo', dst, "os.symlink(item, dst)")
 
 
 class link_lib(Command):
@@ -112,14 +113,14 @@ class link_lib(Command):
         assert os.getcwd() == self.cwd, 'Must be in package root: %s' % self.cwd
 
         if self.build_dst:
-            print self.build_dst
+            print(self.build_dst)
             src = os.path.abspath('compo')
             dst = os.path.join(self.build_dst, 'compo')
-            print '\t\t', dst
+            print('\t\t', dst)
             if os.path.islink(dst):
                 os.remove(dst)
             os.symlink(src, dst)
-            print 'compo', dst, "os.symlink(item, dst)"
+            print('compo', dst, "os.symlink(item, dst)")
 
 
 setup(
@@ -159,7 +160,7 @@ setup(
                    # Specify the Python versions you support here.
                    # In particular, ensure that you indicate whether
                    # you support Python 2, Python 3 or both.
-                   'Programming Language :: Python :: 2.7',
+                   'Programming Language :: Python :: 3',
                    ],
       # What does your project relate to?
       keywords='sample setuptools development',
